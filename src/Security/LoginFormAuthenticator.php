@@ -59,10 +59,10 @@ class LoginFormAuthenticator extends AbstractAuthenticator
                 //dd($credentials, $user);
                 return $credentials === 'tada';
             }, $password),*/
-
             new PasswordCredentials($password),
             [
                 new CsrfTokenBadge('authenticate', $request->request->get('_csrf_token')),
+                new RememberMeBadge(),
             ]
         );
     }
