@@ -34,6 +34,11 @@ class User implements UserInterface
      */
     private $firstName;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password;
+
 
     public function __construct()
     {
@@ -104,6 +109,14 @@ class User implements UserInterface
         return null;
     }
 
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+
     public function getFirstName(): ?string
     {
         return $this->firstName;
@@ -134,6 +147,8 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
+
 
 
 }

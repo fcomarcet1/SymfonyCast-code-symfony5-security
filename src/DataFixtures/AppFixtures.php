@@ -9,6 +9,7 @@ use App\Factory\AnswerFactory;
 use App\Factory\QuestionFactory;
 use App\Factory\QuestionTagFactory;
 use App\Factory\TagFactory;
+use App\Factory\UserFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -45,5 +46,12 @@ class AppFixtures extends Fixture
         })->needsApproval()->many(20)->create();
 
         $manager->flush();
+
+        UserFactory::createOne([
+            'email' => 'admin@admin.com',
+            'roles' => ['ROLE_ADMIN'],
+            'password' => '$2y$13$0GgSWRkGXErzvVvUUU7Ui.x2jU87CUzzSzrR/W7KcwpkmuEV1vE8G',
+        ]);
+        UserFactory::createMany(10);
     }
 }
