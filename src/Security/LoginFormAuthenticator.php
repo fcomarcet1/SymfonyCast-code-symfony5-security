@@ -55,12 +55,12 @@ class LoginFormAuthenticator extends AbstractAuthenticator
                 }
                 return $user;
             }),
-            new CustomCredentials(function($credentials, User $user) {
+            /*new CustomCredentials(function($credentials, User $user) {
                 //dd($credentials, $user);
                 return $credentials === 'tada';
-            }, $password),
+            }, $password),*/
 
-            //new PasswordCredentials($password),
+            new PasswordCredentials($password),
         );
     }
 
