@@ -61,6 +61,9 @@ class LoginFormAuthenticator extends AbstractAuthenticator
             }, $password),*/
 
             new PasswordCredentials($password),
+            [
+                new CsrfTokenBadge('authenticate', $request->request->get('_csrf_token')),
+            ]
         );
     }
 
