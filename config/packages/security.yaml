@@ -19,9 +19,15 @@ security:
         main:
             lazy: true
             provider: app_user_provider
-            entry_point: App\Security\LoginFormAuthenticator
+            entry_point: form_login
+            form_login:
+                login_path: app_login
+                check_path: app_login
+                username_parameter: email
+                password_parameter: password
+            #entry_point: App\Security\LoginFormAuthenticator
             custom_authenticator:
-                - App\Security\LoginFormAuthenticator
+                #- App\Security\LoginFormAuthenticator
                 - App\Security\DummyAuthenticator
             logout:
                 path: app_logout
@@ -30,7 +36,7 @@ security:
                 secret: '%kernel.secret%'
                 lifetime: 604800 # 1 week in seconds
                 signature_properties: [password]
-                #always_remember_me: true
+                always_remember_me: true
 
 
             # activate different ways to authenticate
