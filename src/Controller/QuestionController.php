@@ -14,6 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class QuestionController extends AbstractController
 {
@@ -46,9 +47,16 @@ class QuestionController extends AbstractController
 
     /**
      * @Route("/questions/new")
+     * @isGranted("ROLE_USER")
      */
-    public function new()
+    public function new(): Response
     {
+        //$this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Only admins can create new questions');
+
+        /*if (!$this->isGranted('ROLE_ADMIN')) {
+            throw $this->createAccessDeniedException('No access for you Pepega!');
+        }*/
+
         return new Response('Sounds like a GREAT feature for V2!');
     }
 
