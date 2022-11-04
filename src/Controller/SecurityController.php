@@ -24,6 +24,13 @@ class SecurityController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/admin/login")
+     */
+    public function adminLogin()
+    {
+        return new Response('Pretend admin login page, that should be public');
+    }
 
     /**
      * @Route("/logout", name="app_logout")

@@ -29,8 +29,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('app_popular_answers') }}">Answers</a>
                         </li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('admin_dashboard') }}">Admin</a>
+                            </li>
+                        {% endif %}
                     </ul>
-                    {% if app.user %}
+                    {% if app.user and is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                         <div class="d-flex">
                             {#<a href="{{ path('app_logout') }}" class="btn btn-outline-danger">Logout</a>#}
                             <div class="dropdown">
