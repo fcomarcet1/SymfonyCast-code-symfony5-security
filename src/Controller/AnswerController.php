@@ -31,6 +31,12 @@ class AnswerController extends AbstractController
      */
     public function answerVote(Answer $answer, LoggerInterface $logger, Request $request, EntityManagerInterface $entityManager)
     {
+        $logger->info('{user} is voting on answer {answer}!', [
+            'email' => $this->getUser()->getEmail(),
+            'user' => $this->getUser()->getUserIdentifier(),
+            'answer' => $answer->getId(),
+        ]);
+
         $data = json_decode($request->getContent(), true);
         $direction = $data['direction'] ?? 'up';
 
