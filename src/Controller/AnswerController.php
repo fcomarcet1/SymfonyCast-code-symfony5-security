@@ -7,15 +7,17 @@ use App\Repository\AnswerRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AnswerController extends AbstractController
+class AnswerController extends BaseController
 {
     /**
      * @Route("/answers/popular", name="app_popular_answers")
      */
-    public function popularAnswers(AnswerRepository $answerRepository, Request $request)
+    public function popularAnswers(AnswerRepository $answerRepository, Request $request): Response
     {
         $answers = $answerRepository->findMostPopular(
             $request->query->get('q')
@@ -29,8 +31,7 @@ class AnswerController extends AbstractController
     /**
      * @Route("/answers/{id}/vote", methods="POST", name="answer_vote")
      */
-    public function answerVote(Answer $answer, LoggerInterface $logger, Request $request, EntityManagerInterface $entityManager)
-    {
+    public function answerVote(Answer $answer, LoggerInterface $logger, Request $request, EntityManagerInterface $entityManager): JsonResponse {
         $logger->info('{user} is voting on answer {answer}!', [
             'email' => $this->getUser()->getEmail(),
             'user' => $this->getUser()->getUserIdentifier(),

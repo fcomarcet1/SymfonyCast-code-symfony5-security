@@ -40,8 +40,9 @@
                             {#<a href="{{ path('app_logout') }}" class="btn btn-outline-danger">Logout</a>#}
                             <div class="dropdown">
                                 <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="https://ui-avatars.com/api/?name={{ app.user.firstName|url_encode }}&size=32&background=random"
-                                         alt="{{ app.user.firstName }} Avatar">
+                                    {#<img src="https://ui-avatars.com/api/?name={{ app.user.firstName|url_encode }}&size=32&background=random"
+                                         alt="{{ app.user.firstName }} Avatar">#}
+                                    <img src="{{ app.user.avatarUri }}" alt="{{ app.user.displayName }}" >
                                     {# {{ app.user.userIdentifier }}#}
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
