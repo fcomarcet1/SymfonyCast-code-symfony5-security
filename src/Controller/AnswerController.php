@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AnswerController extends BaseController
+class AnswerController extends AbstractController
 {
     /**
      * @Route("/answers/popular", name="app_popular_answers")
