@@ -8,7 +8,6 @@ export default class extends Controller {
 
     async connect() {
         const response = await axios.get(this.urlValue);
-
         console.log(response.data);
     }
 }
