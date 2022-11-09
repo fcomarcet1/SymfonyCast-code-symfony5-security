@@ -54,4 +54,14 @@ class AdminController extends AbstractController
             'chart2' => $chart2,
         ]);
     }
+
+    /**
+     * @Route("/admin/comments")
+     */
+    public function adminComments(): Response
+    {
+        $this->denyAccessUnlessGranted('ROLE_COMMENT_ADMIN');
+
+        return new Response('Pretend comments admin page');
+    }
 }
