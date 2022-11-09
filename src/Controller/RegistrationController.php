@@ -38,6 +38,7 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            // logged in automatically after registration
             $userAuthenticator->authenticateUser(
                 $user,
                 $formLoginAuthenticator,

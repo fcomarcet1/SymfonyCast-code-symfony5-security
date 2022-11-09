@@ -28,9 +28,29 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
+        UserFactory::createOne([
+            'email' => 'admin@admin.com',
+            'roles' => ['ROLE_ADMIN'],
+            'password' => $this->passwordHasher->hashPassword(new User(), 'admin'),
+        ]);
+
+        UserFactory::createOne([
+            'email' => 'fcomarcet1@gmail.com',
+            'roles' => ['ROLE_USER'],
+            'password' => $this->passwordHasher->hashPassword(new User(), 'password'),
+        ]);
+
+        UserFactory::createMany(10);
+
+
         TagFactory::createMany(100);
 
-        $questions = QuestionFactory::createMany(20);
+        //$questions = QuestionFactory::createMany(20);
+        $questions = QuestionFactory::createMany(20, function() {
+            return [
+                'owner' => UserFactory::random(),
+            ];
+        });
 
         QuestionTagFactory::createMany(100, function() {
             return [
@@ -59,12 +79,6 @@ class AppFixtures extends Fixture
 
         $manager->flush();
 
-        UserFactory::createOne([
-            'email' => 'admin@admin.com',
-            'roles' => ['ROLE_ADMIN'],
-            'password' => $this->passwordHasher->hashPassword(new User(), 'admin'),
-        ]);
 
-        UserFactory::createMany(10);
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -47,10 +49,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     private $plainPassword;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Question::class, mappedBy="owner", orphanRemoval=true)
+     */
+    private $questions;
+
 
     public function __construct()
     {
         $this->roles = ['ROLE_USER'];
+        $this->questions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -178,7 +186,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             'name' => $this->getDisplayName(),
             'size' => $size,
             'random' => 'random',
-            ]);
+        ]);
     }
 
     /**
@@ -187,6 +195,34 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getDisplayName(): string
     {
         return $this->getFirstName() ?: $this->getEmail();
+    }
+
+    /**
+     * @return Collection<int, Question>
+     */
+    public function getQuestions(): Collection
+    {
+        return $this->questions;
+    }
+
+    public function addQuestion(Question $question): self
+    {
+        if (!$this->questions->contains($question)) {
+            $this->questions[] = $question;
+            $question->setOwner($this);
+        }
+        return $this;
+    }
+
+    public function removeQuestion(Question $question): self
+    {
+        if ($this->questions->removeElement($question)) {
+            // set the owning side to null (unless already changed)
+            if ($question->getOwner() === $this) {
+                $question->setOwner(null);
+            }
+        }
+        return $this;
     }
 
 
