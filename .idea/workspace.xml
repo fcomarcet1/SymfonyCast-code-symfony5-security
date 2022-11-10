@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a33f4c60-1a1f-404e-89da-e3aa9af0b133" name="Changes" comment="Activating 2FA">
-      <change beforePath="$PROJECT_DIR$/.idea/5-SymfonyCast-symfony5-security.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/5-SymfonyCast-symfony5-security.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="a33f4c60-1a1f-404e-89da-e3aa9af0b133" name="Changes" comment="Rendering the QR Code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/scheb_2fa.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/scheb_2fa.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +34,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
       <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php81" />
-      <path value="$PROJECT_DIR$/vendor/symfony/templating" />
       <path value="$PROJECT_DIR$/vendor/symfony/string" />
       <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
       <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
@@ -150,6 +145,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
       <path value="$PROJECT_DIR$/vendor/symfony/password-hasher" />
       <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
     </include_path>
   </component>
   <component name="ProjectId" id="2HLWJEOFVphZzDn4tFj1KCyHMKZ" />
@@ -188,7 +184,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668064777483</updated>
-      <workItem from="1668064782641" duration="14110000" />
+      <workItem from="1668064782641" duration="15014000" />
     </task>
     <task id="LOCAL-00001" summary="2 Factor Authentication &amp; Authentication Tokens">
       <created>1668089355144</created>
@@ -211,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668090734554</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Rendering the QR Code">
+      <created>1668092513009</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668092513009</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,6 +235,7 @@
     <MESSAGE value="2 Factor Authentication &amp; Authentication Tokens" />
     <MESSAGE value="2fa with TOTP (Time-Based One Time Password)" />
     <MESSAGE value="Activating 2FA" />
-    <option name="LAST_COMMIT_MESSAGE" value="Activating 2FA" />
+    <MESSAGE value="Rendering the QR Code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rendering the QR Code" />
   </component>
 </project>
