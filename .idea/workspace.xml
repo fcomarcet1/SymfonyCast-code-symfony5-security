@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a33f4c60-1a1f-404e-89da-e3aa9af0b133" name="Changes" comment="Rendering the QR Code">
+    <list default="true" id="a33f4c60-1a1f-404e-89da-e3aa9af0b133" name="Changes" comment="QR Data &amp; Scanning with an Authenticator App">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/scheb_2fa.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/scheb_2fa.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/index.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +185,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668064777483</updated>
-      <workItem from="1668064782641" duration="15014000" />
+      <workItem from="1668064782641" duration="16241000" />
     </task>
     <task id="LOCAL-00001" summary="2 Factor Authentication &amp; Authentication Tokens">
       <created>1668089355144</created>
@@ -214,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668092513009</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="QR Data &amp; Scanning with an Authenticator App">
+      <created>1668093108319</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1668093108319</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,6 +244,7 @@
     <MESSAGE value="2fa with TOTP (Time-Based One Time Password)" />
     <MESSAGE value="Activating 2FA" />
     <MESSAGE value="Rendering the QR Code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rendering the QR Code" />
+    <MESSAGE value="QR Data &amp; Scanning with an Authenticator App" />
+    <option name="LAST_COMMIT_MESSAGE" value="QR Data &amp; Scanning with an Authenticator App" />
   </component>
 </project>
