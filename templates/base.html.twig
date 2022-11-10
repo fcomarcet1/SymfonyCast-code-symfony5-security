@@ -13,6 +13,12 @@
         {% endblock %}
     </head>
     <body>
+    {% for flash in app.flashes('success') %}
+        <div class="alert alert-success">{{ flash }}</div>
+    {% endfor %}
+    {% for flash in app.flashes('error') %}
+        <div class="alert alert-danger">{{ flash }}</div>
+    {% endfor %}
     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
         {{ stimulus_controller('user-api', {
             url: path('app_user_api_me')

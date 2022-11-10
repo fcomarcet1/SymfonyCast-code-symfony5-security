@@ -54,11 +54,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $questions;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isVerified;
+
 
     public function __construct()
     {
         $this->roles = ['ROLE_USER'];
         $this->questions = new ArrayCollection();
+        $this->isVerified = false;
     }
 
     public function getId(): ?int
@@ -158,6 +164,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getIsVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
+        return $this;
+    }
+
     /**
      * This method can be removed in Symfony 6.0 - is not needed for apps that do not check user passwords.
      *
@@ -224,6 +241,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
         return $this;
     }
+
+
 
 
 

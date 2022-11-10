@@ -50,6 +50,7 @@ final class UserFactory extends ModelFactory
             /*'password' => $this->passwordHasher->hashPassword(new User(), 'password'),*/
             /*'password' => self::faker()->password(),*/
             'plainPassword' => 'password',
+            'isVerified'    => true,
         ];
     }
 
